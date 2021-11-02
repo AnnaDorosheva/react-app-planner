@@ -1,0 +1,20 @@
+.blackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(199, 191, 191, 0.3);
+  z-index: 10;
+}
+.modalWindow {
+  max-width: 420px;
+  padding: 16px;
+  width: 100%;
+  min-height: 300px;
+  background-color: white;
+
+}
