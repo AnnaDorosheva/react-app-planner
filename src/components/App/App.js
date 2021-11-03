@@ -15,7 +15,7 @@ export default class App extends Component {
       <div>
        
        <button onClick={this.openModal}>Open</button>
-       {this.state.isModalOpen && (       <ModalWindow> 
+       {this.state.isModalOpen && (       <ModalWindow onClose={this.closeModal}> 
          <h2>Modal window</h2>
          <p>Моя цель - донести до вас все необходимое для того, чтобы вы сразу, с довольно хорошим пониманием вопроса, начали пользоваться git. Здесь я не беру цель рассказать все темы, но только те, которые нужны чтобы сразу начать пользоваться Git.
          </p>
