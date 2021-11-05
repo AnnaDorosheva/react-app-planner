@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-export default class TaskFilter extends Component {
-  render() {
-    return (
-      <div>
-        TaskFilter
-      </div>
-    )
-  }
-};
+const TaskFilter = ({value, onChangeFilter}) => {
+  return (
+    <input name="" type="text" placeholder="Type to filter..." value={value} onChange={onChangeFilter}>
+      
+    </input>
+  )
+}
+
+export default TaskFilter
+

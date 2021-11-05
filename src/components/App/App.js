@@ -7,6 +7,7 @@ import TaskList from '../TaskList/TaskList';
 export default class App extends Component {
   state = {
     tasks: [],
+    filter: ""
   };
 
 
@@ -24,14 +25,27 @@ deleteTask = (id) => {
   this.setState( state => ({
     tasks: state.tasks.filter(task => task.id !== id)
   }))
+};
+togleComplited = (id) => {
+  this.setState( state => ({
+    tasks: state.tasks.map(task => task.id === id ? {...task, complited: !task.complited} : task)
+  }))
+};
+updatePriority = (id, priority) => {
+this.setState( state => ({
+  tasks: state.tasks.map(task => task.id === id ? {...task, priority} : task)
+}))
+};
+changeFilter = (e) => {
+  this.setState({filter: e.target.value})
 }
   render() {
-    const { tasks } = this.state;
+    const { tasks, filter } = this.state;
     return (
       <div>
    <TaskEditor onAddTask={this.addTask}/>
-   <TaskFilter />
-   <TaskList items={tasks} onDelete={this.deleteTask}/>
+   <TaskFilter  value={filter} onChangeFilter={this.changeFilter}/>
+   <TaskList items={tasks} onDelete={this.deleteTask} updatePriority={this.updatePriority} togleComplited={this.togleComplited}/>
   </div> )
   }
 }

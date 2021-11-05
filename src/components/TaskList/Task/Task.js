@@ -7,7 +7,7 @@ const Task = (props) => {
       <p>{props.text}</p>
       <div>
         <button type="button" onClick={props.onDelete}>Delite</button>
-        <select value={props.priority} name="priority">
+        <select value={props.priority} name="priority" onChange={(e) => props.updatePriority(props.id, e.target.value)}>
           <option value="low">Low</option>
           <option value="normal">Normal</option>
           <option value="high">High</option>
@@ -15,7 +15,7 @@ const Task = (props) => {
 
         <label>
           Complited
-          <input type="checkbox" checked={props.complited} />
+          <input type="checkbox" onChange={props.togleComplited} checked={props.complited} />
         </label>
       </div>
     </div>
