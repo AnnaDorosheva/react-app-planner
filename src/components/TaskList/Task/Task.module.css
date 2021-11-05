@@ -1,0 +1,14 @@
+
+.lowPriority {
+  border-color: green;
+}
+.normalPriority {
+  border-color: rgb(190, 146, 240);
+}
+.highPriority {
+  border-color: red;
+}
+.task {
+  width: 300px;
+  background-color: honeydew;
+}
