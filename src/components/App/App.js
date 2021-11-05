@@ -19,6 +19,11 @@ addTask = (task) => {
   this.setState( state => ({
     tasks: [...state.tasks, taskToAdd]
   }))
+};
+deleteTask = (id) => {
+  this.setState( state => ({
+    tasks: state.tasks.filter(task => task.id !== id)
+  }))
 }
   render() {
     const { tasks } = this.state;
@@ -26,7 +31,7 @@ addTask = (task) => {
       <div>
    <TaskEditor onAddTask={this.addTask}/>
    <TaskFilter />
-   <TaskList items={tasks}/>
+   <TaskList items={tasks} onDelete={this.deleteTask}/>
   </div> )
   }
 }
