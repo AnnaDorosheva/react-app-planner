@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PrioritySelector from '../PrioritySelector/PrioritySelector';
 
 export default class TaskEditor extends Component {
   state = {
@@ -26,11 +27,8 @@ this.setState({
         <input type="text" value={text} onChange={this.handleChange} name="text" placeholder="Enter task content..." />
         <label>
           Select task priority
-          <select name="priority" onChange={this.handleChange} value={priority}>
-          <option value="low">Low</option>
-          <option value="normal">Normal</option>
-          <option value="high">High</option>
-          </select>
+          <PrioritySelector value={priority} onChange={this.handleChange}/>
+
         </label>
         <button type="submit" onSubmit={this.handleSubmit}>Create</button>
       </form>

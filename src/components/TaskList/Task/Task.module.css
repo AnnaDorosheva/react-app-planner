@@ -3,6 +3,7 @@
   background-color: rgb(236, 247, 236);
   border: 3px solid bisque;
   overflow: hidden;
+  padding: 4px;
 }
 .lowPriority {
   border-color: green;
@@ -12,4 +13,9 @@
 }
 .highPriority {
   border-color: red;
+}
+.panel {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid rgb(63, 59, 59);
 }

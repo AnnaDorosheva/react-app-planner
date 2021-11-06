@@ -14,6 +14,19 @@ export default class App extends Component {
     filter: ""
   };
 
+  componentDidMount() {
+const fromLocalstorage = localStorage.getItem('tasks');
+if(fromLocalstorage) {
+ const tasks = JSON.parse(fromLocalstorage);
+ this.setState({tasks: tasks});
+}
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+if(prevState.tasks !== this.state.tasks) {
+  localStorage.setItem('tasks', JSON.stringify(this.state.tasks))
+}
+  };
 
 addTask = (task) => {
   const taskToAdd = {
