@@ -4,6 +4,10 @@ import TaskEditor from "../TaskEditor/TaskEditor";
 import TaskFilter from '../TaskFilter/TaskFilter';
 import TaskList from '../TaskList/TaskList';
 
+const filterTasks = (value, tasksArr) => {
+return tasksArr.filter(task => task.text.toLowerCase().includes(value.toLowerCase()))
+}
+
 export default class App extends Component {
   state = {
     tasks: [],
@@ -38,14 +42,16 @@ this.setState( state => ({
 };
 changeFilter = (e) => {
   this.setState({filter: e.target.value})
-}
+};
+
   render() {
     const { tasks, filter } = this.state;
+    const filteredTasks = filterTasks(filter, tasks);
     return (
       <div>
    <TaskEditor onAddTask={this.addTask}/>
    <TaskFilter  value={filter} onChangeFilter={this.changeFilter}/>
-   <TaskList items={tasks} onDelete={this.deleteTask} updatePriority={this.updatePriority} togleComplited={this.togleComplited}/>
+   <TaskList items={tasks.length >=1 ? filteredTasks : tasks} onDelete={this.deleteTask} updatePriority={this.updatePriority} togleComplited={this.togleComplited}/>
   </div> )
   }
 }
